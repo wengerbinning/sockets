@@ -42,8 +42,6 @@ void free_packet (char *packet) {
 int hexdump (void *ptr, int size) {
     int i;
     unsigned char *p;
-
-    content("Print packet data(%dB): ", size);
     
     for (i = 0; i < size; i++) {
         p = (unsigned char *)(ptr + i);
@@ -55,7 +53,6 @@ int hexdump (void *ptr, int size) {
             content("%02X", *p);
         }
     }
-    info("");
 
     return 0;
 }
