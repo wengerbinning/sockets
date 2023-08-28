@@ -74,7 +74,8 @@ int pf_packet_packet_all (struct socket_param_t *param) {
         return -1;
     }
 	
-    hexdump(packet, len);
+	if (param->verbose)
+    	hexdump(packet, len);
 
 	sendto(sock, packet, len, 0, &addr, sizeof(addr));
 

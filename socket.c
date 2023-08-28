@@ -54,11 +54,12 @@ static inline int parse_long_options (const struct option *opt, int idx, struct 
 	case OPT_HELP:
 		help(prog_name);
 		return 0;
-
+	case OPT_VERBOSE:
+		param->verbose = 1;
+		break;
 	case OPT_VERISON:
 		version(prog_name);
 		return 0;
-	
 	case OPT_INTEFACE:
 		param->iface = optarg;
 		break;
@@ -96,12 +97,14 @@ int main (int argc, char *argv[]) {
 		case 'h':
 			help(argv[0]);
 			return 0;
-
 		case 'i':
 			param.iface = optarg;
 			break;
 		case 's':
 			param.server = 1;
+			break;
+		case 'v':
+			param.verbose = 1;
 			break;
 		case 'V':
 			version(argv[0]);
@@ -119,7 +122,7 @@ int main (int argc, char *argv[]) {
 
     if (optind < argc) {
         for (i = optind; i < argc; i++) {
-            printf("argv[%d] =  %s\n", i, argv[i]);
+            if (param.verbose) printf("argv[%d] =  %s\n", i, argv[i]);
 			param.file = argv[i];
         }
     }

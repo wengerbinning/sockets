@@ -53,6 +53,8 @@ int hexdump (void *ptr, int size) {
             content("%02X", *p);
         }
     }
+    
+    info();
 
     return 0;
 }
