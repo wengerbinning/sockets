@@ -14,8 +14,8 @@ int main(int argc, char *argv[]) {
 	int opt, addrlen;
 	char buffer[1024];
 	int ret;
-	
-	if ((fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+
+	if ((fd = socket(AF_INET, SOCK_STREAM, IPPROTO_IP)) < 0) {
 		error("Failed to create socket!(error: %d)", fd);
 		exit(fd);
 	}

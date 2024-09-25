@@ -1,4 +1,4 @@
-#include <linux/if_ether.h>
+	#include <linux/if_ether.h>
 
 #include <stdio.h>
 #include <string.h>
@@ -23,7 +23,7 @@ int pf_packet_packet_all (struct socket_param_t *param) {
 	// char buffer[1024];
     void *packet;
 
-	if ((sock = socket(PF_PACKET, SOCK_PACKET, htons(ETH_P_ALL))) < 0) {
+	if ((sock = socket(AF_PACKET, SOCK_PACKET, htons(ETH_P_ALL))) < 0) {
 		error("Failed to create socket!");
 		exit(sock);
 	}
@@ -73,7 +73,7 @@ int pf_packet_packet_all (struct socket_param_t *param) {
         close(sock);
         return -1;
     }
-	
+
 	if (param->verbose)
     	hexdump(packet, len);
 
@@ -81,6 +81,6 @@ int pf_packet_packet_all (struct socket_param_t *param) {
 
     free_packet(packet);
 	close(sock);
-	
+
 	return 0;
 }

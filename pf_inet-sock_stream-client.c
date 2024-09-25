@@ -14,11 +14,11 @@ int main(int argc, char *argv[]) {
 	char buffer[1024];
 
 
-	if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+	if ((sock = socket(AF_INET, SOCK_STREAM, IPPROTO_IP)) < 0) {
 		error("Failedto create socket!");
 		exit(sock);
 	}
-	
+
 	saddr.sin_family = AF_INET;
 	inet_pton(AF_INET, "127.0.0.1", &saddr.sin_addr);
 	saddr.sin_port = htons(9000);
@@ -31,9 +31,9 @@ int main(int argc, char *argv[]) {
 
 	memset(buffer, 0, sizeof(buffer));
 	sprintf(buffer, "Hello, world!");
-	
+
 	send(sock, buffer, strlen(buffer), 0);
-	
+
 	read(sock, buffer, sizeof(buffer));
 
 	close(csock);

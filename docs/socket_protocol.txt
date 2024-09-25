@@ -1,0 +1,40 @@
+
+
+  0 IPPROTO_IP      /* Dummy protocol for TCP.  */
+  1 IPPROTO_ICMP    /* Internet Control Message Protocol.  */
+  2 IPPROTO_IGMP    /* Internet Group Management Protocol. */
+  4 IPPROTO_IPIP    /* IPIP tunnels (older KA9Q tunnels use 94).  */
+  6 IPPROTO_TCP     /* Transmission Control Protocol.  */
+  8 IPPROTO_EGP     /* Exterior Gateway Protocol.  */
+ 12 IPPROTO_PUP     /* PUP protocol.  */
+ 17 IPPROTO_UDP     /* User Datagram Protocol.  */
+ 22 IPPROTO_IDP     /* XNS IDP protocol.  */
+ 29 IPPROTO_TP      /* SO Transport Protocol Class 4.  */
+ 33 IPPROTO_DCCP    /* Datagram Congestion Control Protocol.  */
+ 41 IPPROTO_IPV6    /* IPv6 header.  */
+ 46 IPPROTO_RSVP    /* Reservation Protocol.  */
+ 47 IPPROTO_GRE     /* General Routing Encapsulation.  */
+ 50 IPPROTO_ESP     /* encapsulating security payload.  */
+ 51 IPPROTO_AH      /* authentication header.  */
+ 92 IPPROTO_MTP     /* Multicast Transport Protocol.  */
+ 94 IPPROTO_BEETPH  /* IP option pseudo header for BEET.  */
+ 98 IPPROTO_ENCAP   /* Encapsulation Header.  */
+103 IPPROTO_PIM         /* Protocol Independent Multicast.  */
+108 IPPROTO_COMP        /* Compression Header Protocol.  */
+115 IPPROTO_L2TP        /* Layer 2 Tunnelling Protocol.  */
+132 IPPROTO_SCTP        /* Stream Control Transmission Protocol.  */
+136 IPPROTO_UDPLITE     /* UDP-Lite protocol.  */
+137 IPPROTO_MPLS        /* MPLS in IP.  */
+143 IPPROTO_ETHERNET    /* Ethernet-within-IPv6 Encapsulation.  */
+255 IPPROTO_RAW         /* Raw IP packets.  */
+262 IPPROTO_MPTCP       /* Multipath TCP connection.  */
+    IPPROTO_MAX
+
+
+
+linux/if_ether.h
+-----------------
+
+
+
+ETH_P_ALL
