@@ -21,8 +21,6 @@ int main (int argc, char argv[]) {
 	int ret;
 	char buffer[1024];
 
-	
-
 
 	if ((sock = socket(PF_PACKET, SOCK_PACKET, htons(ETH_P_ALL))) < 0) {
 		error("Failed to create socket!");
@@ -48,6 +46,6 @@ int main (int argc, char argv[]) {
 		debug("receive %d data", ret);
 	}
 
-	
+
 	return 0;
 }
