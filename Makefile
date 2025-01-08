@@ -11,26 +11,32 @@ LDFLAGS=
 
 AR = ar
 
-all: executable library
+all: executable
 
-executable: socket
-library: libpacket.a libsocket.a
+executable: test
+# library: libpacket.a libsocket.a
 
-LIBS = libsocket.a libpacket.a
-
-
+# LIBS = libsocket.a libpacket.a
 
 
 
-libpacket.a: data.o
-	@$(ECHO) [AR] $@
-	@$(AR) crs $@ $^
 
-libsocket.a: pf_packet-sock_packet-all.o
-	@$(ECHO) [AR] $@
-	@$(AR) crs $@ $^
 
-socket: socket.o $(LIBS)
+# libpacket.a: data.o
+# 	@$(ECHO) [AR] $@
+# 	@$(AR) crs $@ $^
+
+# libsocket.a: pf_packet-sock_packet-all.o
+# 	@$(ECHO) [AR] $@
+# 	@$(AR) crs $@ $^
+
+# socket: socket.o $(LIBS)
+# 	@$(ECHO) [LD] $@
+# 	@$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
+
+
+
+test: main.o hexdump.o
 	@$(ECHO) [LD] $@
 	@$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
 
