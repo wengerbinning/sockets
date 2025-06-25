@@ -1,0 +1,61 @@
+
+
+
+
+FRAME_FETH
+FRAME_FRAW
+
+
+struct frame {
+    int flags;
+    mac_addr_t src;
+    mac_addr_t dst;
+    ethtype_t type;
+    void *data, *priv;
+};
+
+
+
+ETH_FSOCK
+ETH_FBIND
+
+struct ethernet_context {
+    int flags, sock;
+    char iface[64 + 1];
+};
+
+
+
+
+
+
+int ethernet_sock(void) {
+	int sock;
+	if ((sock = socket(PF_PACKET, SOCK_PACKET, htons(ETH_P_ALL))) < 0) {
+		error("Failed to create socket!");
+		exit(sock);
+	}
+	return sock;
+}
+
+
+int ethernet_init (struct ethernet_context *ctx) {
+	struct sockaddr addr;
+	ctx->sock = ethernet_sock();
+
+}
+
+
+
+ethernet_frame
+
+ethernet_send(ctx, frame);
+ethernet_recv(ctx, frame);
+
+
+ethernet_init(ctx);
+
+ethernet_send(ctx, frame);
+ethernet_recv(ctx, frame);
+
+ethernet_exit(ctx);

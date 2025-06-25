@@ -49,3 +49,62 @@ int main (int argc, char argv[]) {
 
 	return 0;
 }
+
+
+struct sock_proto_ops {
+	int init(ctx);
+	int send(ctx, buf, size);
+	int recv(ctx, buf, size);
+	int exit(ctx);
+};
+
+struct sock_proto {
+	char * name;
+	struct sock_proto_ops *ops;
+};
+
+struct sock_context {
+	int flags, sock;
+
+}
+
+sock_init(ctx, ethernet)
+sock_bind(ctx, iface)
+sock_listen(ctx, addr, port)
+sock_send(ctx, buf, size)
+sock_recv(ctx, buf, size)
+sock_exit(ctx)
+
+
+
+
+
+
+
+
+
+
+init ethernet
+bind eth0
+send frame-1
+recv frame-2
+exit ethernet
+
+
+init ethernet
+bind eth0
+recv frame-a
+send frame-b
+exit ethernet
+
+
+
+
+init tcp
+bind 192.168.122.0, 0
+conn 192.168.122.0, 20
+quit 12
+exit tcp
+
+
+queue  test
